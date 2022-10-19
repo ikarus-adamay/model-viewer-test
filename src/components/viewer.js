@@ -9,6 +9,18 @@ const Viewer = () => {
   const modelRef = React.useRef();
   const [annots, setAnnots] = useState([]);
 
+  const handleTouchStart = (event) => {
+    const {clientX, clientY} = event.touches[0];
+    if (modelRef.current) {
+      let hit = modelRef.current.positionAndNormalFromPoint(clientX, clientY);
+      if (hit) {
+        setAnnots((annots) => {
+          return [...annots, hit];
+        });
+      }
+    }
+  };
+
   const handleClick = (event) => {
     const { clientX, clientY } = event;
 
@@ -42,6 +54,7 @@ const Viewer = () => {
         xr-environment
         style={{ width: "100vw", height: "100vh"}}
         onClick={handleClick}
+        onTouchStart={handleTouchStart}
         ref={(ref) => {
           modelRef.current = ref;
         }}
