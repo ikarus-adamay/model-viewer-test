@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
+
 import hamburger from '../assets/models/hamburger.glb'
 import '../assets/styles/viewer.css'
 import "@google/model-viewer/dist/model-viewer";
+
 const Viewer = () => {
   // const [token, setToken] = useState(0);
   const modelRef = React.useRef();
@@ -32,9 +34,12 @@ const Viewer = () => {
     <model-viewer 
         alt="Hamburger" 
         src={hamburger} 
+        ar
+        ar-scale="fixed"
         shadow-intensity="1" 
         camera-controls 
         touch-action="pan-y" 
+        xr-environment
         style={{ width: "100vw", height: "100vh"}}
         onClick={handleClick}
         ref={(ref) => {
