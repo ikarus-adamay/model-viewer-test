@@ -10,9 +10,9 @@ const Viewer = () => {
   const [annots, setAnnots] = useState([]);
 
   const handleTouchStart = (event) => {
-    const {clientX, clientY} = event.touches[0];
+    const {clientX, clientY, clientZ} = event.touches[0];
     if (modelRef.current) {
-      let hit = modelRef.current.positionAndNormalFromPoint(clientX, clientY);
+      let hit = modelRef.current.positionAndNormalFromPoint(clientX, clientY, clientZ);
       if (hit) {
         setAnnots((annots) => {
           return [...annots, hit];
@@ -22,10 +22,10 @@ const Viewer = () => {
   };
 
   const handleClick = (event) => {
-    const { clientX, clientY } = event;
+    const { clientX, clientY, clientZ } = event;
 
     if (modelRef.current) {
-      let hit = modelRef.current.positionAndNormalFromPoint(clientX, clientY);
+      let hit = modelRef.current.positionAndNormalFromPoint(clientX, clientY, clientZ);
       if (hit) {
         setAnnots((annots) => {
           return [...annots, hit];
