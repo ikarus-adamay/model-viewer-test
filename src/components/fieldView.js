@@ -1,10 +1,10 @@
 import React from 'react'
 
-const fieldView = () => {
+const FieldView = () => {
 
   return (
-    <div>fieldView</div>
+    <div>FieldView</div>
   )
 }
 
-export default fieldView
+export default FieldView

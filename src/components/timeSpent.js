@@ -1,17 +1,34 @@
 import React, { useState } from 'react'
 
 const timeSpent = () => {
-    const componentDidMount = () => {
-        this.startTime = new Date() * 1;
-     }
-     
-    const componentWillUnmount = () => {
-        let endTime = new Date() * 1;
-        let elapsed = endTime - this.startTime;
-     }
+  let startDate = new Date();
+  let elapsedTime = 0;
+
+  const focus = function() {
+    startDate = new Date();
+  };
+
+  const blur = function() {
+    const endDate = new Date();
+    const spentTime = endDate.getTime() - startDate.getTime();
+    elapsedTime += spentTime;
+  };
+
+  const beforeunload = function() {
+    const endDate = new Date();
+    const spentTime = endDate.getTime() - startDate.getTime();
+    elapsedTime += spentTime;
+
+    // elapsedTime contains the time spent on page in milliseconds
+  };
+
+  window.addEventListener('focus', focus);
+  window.addEventListener('blur', blur);
+  window.addEventListener('beforeunload', beforeunload)
+ 
 
   return (
-    <div>timeSpent</div>
+    <div></div>
   )
 }
 

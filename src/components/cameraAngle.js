@@ -1,9 +1,9 @@
 import React from 'react'
 
-const cameraAngle = () => {
+const CameraAngle = () => {
   return (
-    <div>cameraAngle</div>
+    <div>CameraAngle</div>
   )
 }
 
-export default cameraAngle
+export default CameraAngle

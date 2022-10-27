@@ -5,7 +5,7 @@ import '../assets/styles/viewer.css'
 import "@google/model-viewer/dist/model-viewer";
 
 const TrackClick = () => {
-  // const [token, setToken] = useState(0);
+  const [count, setCount] = useState(0);
   const modelRef = React.useRef();
   const [annots, setAnnots] = useState([]);
 
@@ -59,14 +59,20 @@ const TrackClick = () => {
           modelRef.current = ref;
         }}
     >
+      {console.clear()}
       {annots.map((annot, idx) => (
-        <button
+        <>
+          {console.log(annot)}
+          <button
           key={`hotspot-${idx}`}
           className="view-button"
           slot={`hotspot-${idx}`}
           data-position={getDataPosition(annot)}
           data-normal={getDataNormal(annot)}
         ></button>
+          
+        </>
+        
         ))
       }
     </model-viewer>
