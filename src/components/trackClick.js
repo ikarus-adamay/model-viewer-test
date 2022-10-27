@@ -59,10 +59,7 @@ const TrackClick = () => {
           modelRef.current = ref;
         }}
     >
-      {console.clear()}
       {annots.map((annot, idx) => (
-        <>
-          {console.log(annot)}
           <button
           key={`hotspot-${idx}`}
           className="view-button"
@@ -70,9 +67,6 @@ const TrackClick = () => {
           data-position={getDataPosition(annot)}
           data-normal={getDataNormal(annot)}
         ></button>
-          
-        </>
-        
         ))
       }
     </model-viewer>
