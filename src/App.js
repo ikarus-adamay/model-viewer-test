@@ -1,10 +1,12 @@
 import './App.css';
-import Viewer from '../src/components/viewer';
+import Viewer from './components/Viewer';
+import HotspotView from './components/HotspotView';
 
 function App() {
   return (
     <div className="App">
       <Viewer />
+      {/* <HotspotView/> */}
     </div>
   );
 }

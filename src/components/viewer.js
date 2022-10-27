@@ -41,7 +41,7 @@ const Viewer = () => {
   const getDataNormal = (annot) => {
     return `${annot.normal.x} ${annot.normal.y} ${annot.normal.z}`;
   };
-
+  
   return (
     <model-viewer 
         alt="Hamburger" 
