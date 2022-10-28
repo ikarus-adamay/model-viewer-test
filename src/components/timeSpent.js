@@ -38,7 +38,8 @@ const timeSpent = () => {
   
   return (
     <div>
-
+      <button onClick={trackTime}>Track Time</button>
+      
     </div>
   )
 }
