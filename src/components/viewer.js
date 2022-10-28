@@ -4,6 +4,9 @@ import hamburger from '../assets/models/hamburger.glb'
 import '../assets/styles/viewer.css'
 import "@google/model-viewer/dist/model-viewer";
 
+import TimeSpent from './TimeSpent';
+import CameraAngle from './CameraAngle';
+
 const Viewer = () => {
   // const [token, setToken] = useState(0);
   const modelRef = React.useRef();
@@ -69,6 +72,8 @@ const Viewer = () => {
         ></button>
         ))
       }
+      <TimeSpent />
+      <CameraAngle/>
     </model-viewer>
   )
 }

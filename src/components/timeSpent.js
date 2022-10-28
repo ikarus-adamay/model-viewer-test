@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import TimeMe from 'timeme.js'
 
 const timeSpent = () => {
@@ -39,7 +39,6 @@ const timeSpent = () => {
   return (
     <div>
       <button onClick={trackTime}>Track Time</button>
-      
     </div>
   )
 }

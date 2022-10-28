@@ -5,7 +5,7 @@ import '../assets/styles/viewer.css'
 import "@google/model-viewer/dist/model-viewer";
 
 const TrackClick = () => {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const modelRef = React.useRef();
   const [annots, setAnnots] = useState([]);
 
