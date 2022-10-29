@@ -4,6 +4,8 @@ import hamburger from '../assets/models/hamburger.glb'
 import '../assets/styles/viewer.css'
 import "@google/model-viewer/dist/model-viewer";
 
+import TimeMe from 'timeme.js'
+
 const TrackClick = () => {
   const modelRef = React.useRef();
   const [annots, setAnnots] = useState([]);
@@ -42,6 +44,13 @@ const TrackClick = () => {
       console.log(camera);
       console.log(view);
       console.log(target);
+
+      TimeMe.initialize({
+        currentPageName: "model-viewer", // current page
+        idleTimeoutInSeconds: 10 // stop recording time if user is idle for 30 seconds
+      });
+      let time = TimeMe.getTimeOnCurrentPageInSeconds();
+      console.log(time);
     }
   };
 
@@ -66,6 +75,15 @@ const TrackClick = () => {
   const coordinateList = annots.map((annot, index) => 
     <div key={index}>{annot.position.x}, {annot.position.y}, {annot.position.z}, {annot.normal.x}, {annot.normal.y}, {annot.normal.z}</div>
   );
+
+  // const recordTime = (event) => {
+  //   TimeMe.initialize({
+  //     currentPageName: "model-viewer", // current page
+  //     idleTimeoutInSeconds: 10 // stop recording time if user is idle for 30 seconds
+  //   });
+  //   let time = TimeMe.getTimeOnElementInSeconds(modelRef.current);
+  //   console.log(time);
+  // }
 
   return (
     <model-viewer 
