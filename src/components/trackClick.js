@@ -89,6 +89,8 @@ const TrackClick = () => {
   //   console.log(time);
   // }
 
+  // const date = new Date();
+
   return (
     <model-viewer 
         id = "model-viewer"
