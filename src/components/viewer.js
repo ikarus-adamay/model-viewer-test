@@ -4,11 +4,7 @@ import hamburger from '../assets/models/hamburger.glb'
 import '../assets/styles/viewer.css'
 import "@google/model-viewer/dist/model-viewer";
 
-import TimeSpent from './TimeSpent';
-import CameraAngle from './CameraAngle';
-
 const Viewer = () => {
-  // const [token, setToken] = useState(0);
   const modelRef = React.useRef();
   const [annots, setAnnots] = useState([]);
 
@@ -47,6 +43,7 @@ const Viewer = () => {
   
   return (
     <model-viewer 
+        id = "model-viewer"
         alt="Hamburger" 
         src={hamburger} 
         ar
@@ -62,9 +59,11 @@ const Viewer = () => {
           modelRef.current = ref;
         }}
     >
+      
       {annots.map((annot, idx) => (
         <button
           key={`hotspot-${idx}`}
+          id="display-button"
           className="view-button"
           slot={`hotspot-${idx}`}
           data-position={getDataPosition(annot)}
@@ -72,9 +71,8 @@ const Viewer = () => {
         ></button>
         ))
       }
-      <TimeSpent />
-      <CameraAngle/>
     </model-viewer>
+    
   )
 }
 

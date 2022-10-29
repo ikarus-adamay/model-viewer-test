@@ -2,43 +2,19 @@ import React from 'react'
 import TimeMe from 'timeme.js'
 
 const timeSpent = () => {
-  // let startDate = new Date();
-  // let elapsedTime = 0;
 
-  // const focus = function() {
-  //   startDate = new Date();
-  // };
+  TimeMe.initialize({
+    currentPageName: "my-model-viewer",
+    idleTimeoutInSeconds: 5,
+  })
+  TimeMe.trackTimeOnElement('area-of-interest-1');
+  let timeSpentOnElement = TimeMe.getTimeOnElementInSeconds('area-of-interest-1');
+	document.getElementById('area-of-interest-time-1').textContent = timeSpentOnElement.toFixed(2);
 
-  // const blur = function() {
-  //   const endDate = new Date();
-  //   const spentTime = endDate.getTime() - startDate.getTime();
-  //   elapsedTime += spentTime;
-  // };
-
-  // const beforeunload = function() {
-  //   const endDate = new Date();
-  //   const spentTime = endDate.getTime() - startDate.getTime();
-  //   elapsedTime += spentTime;
-
-  //   // elapsedTime contains the time spent on page in milliseconds
-  // };
-
-  // window.addEventListener('focus', focus);
-  // window.addEventListener('blur', blur);
-  // window.addEventListener('beforeunload', beforeunload)
- 
-  TimeMe.setIdleDurationInSeconds(30);
-	TimeMe.setCurrentPageName("model-viewer");
-	TimeMe.initialize();
-
-  const trackTime = () => {
-    const timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-    console.log(timeSpentOnPage);
-  }
-  
   return (
-    <div>
-      <button onClick={trackTime}>Track Time</button>
+    <div id ="area-of-interest-1">
+      <span id="area-of-interest-time-1"></span>letsgooooooooooooo
+      vhjbhiw ninievniunvuqioenviuoq
     </div>
   )
 }

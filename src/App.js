@@ -1,14 +1,14 @@
 import './App.css';
-import Viewer from './components/Viewer';
-// import HotspotView from './components/HotspotView';
-// import TrackClick from './components/TrackClick';
+// import Viewer from './components/Viewer';
+import TrackClick from './components/TrackClick';
+import TimeSpent from './components/TimeSpent';
 
 function App() {
   return (
     <div className="App">
-      <Viewer />
-      {/* <HotspotView/> */}
-      {/* <TrackClick/> */}
+      {/* <Viewer /> */}
+      <TrackClick/>
+      <TimeSpent/>
     </div>
   );
 }
