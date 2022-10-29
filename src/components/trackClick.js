@@ -89,7 +89,10 @@ const TrackClick = () => {
   //   console.log(time);
   // }
 
-  // const date = new Date();
+  const getTimestamp = (event) => {
+    const d = new Date(Date.now());
+    return d.toISOString();
+  }
 
   return (
     <model-viewer 
@@ -122,6 +125,7 @@ const TrackClick = () => {
       <div>
         {coordinateList}
       </div>
+      <button onClick={getTimestamp}>Get Timestamp</button>
     </model-viewer>
   )
 }
