@@ -6,6 +6,8 @@ import "@google/model-viewer/dist/model-viewer";
 
 import TimeMe from 'timeme.js'
 
+
+
 const TrackClick = () => {
   const modelRef = React.useRef();
   const [annots, setAnnots] = useState([]);
@@ -15,6 +17,7 @@ const TrackClick = () => {
     if (modelRef.current) {
       let hit = modelRef.current.positionAndNormalFromPoint(clientX, clientY, clientZ);
       let camera = modelRef.current.getCameraOrbit();
+      let radius = modelRef.current.cameraOrbit.radius();
       let view = modelRef.current.getFieldOfView();
       let target = modelRef.current.getCameraTarget();
       if (hit) {
@@ -23,6 +26,7 @@ const TrackClick = () => {
         });
       }
       console.log(camera);
+      console.log(radius);
       console.log(view);
       console.log(target);
     }
