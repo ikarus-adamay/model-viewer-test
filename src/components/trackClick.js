@@ -42,19 +42,19 @@ const TrackClick = () => {
           return [...annots, hit];
         });
       }
-      console.log(camera);
-      console.log(view);
-      console.log(target);
+      // console.log(camera);
+      // console.log(view);
+      // console.log(target);
 
       TimeMe.initialize({
         currentPageName: "model-viewer", // current page
         idleTimeoutInSeconds: 10 // stop recording time if user is idle for 30 seconds
       });
       let time = TimeMe.getTimeOnCurrentPageInSeconds();
-      console.log(time);
+      // console.log(time);
 
       const d = new Date(Date.now());
-      console.log(d.toISOString());
+      // console.log(d.toISOString());
 
       annots.map((annot) =>
       //json local storage object creation
@@ -70,8 +70,6 @@ const TrackClick = () => {
             "z": annot.normal.z
           },
           "cameraOrbit":{
-
-            
             "theta": camera.theta,
             "phi": camera.phi,
             "radius": camera.radius
@@ -83,10 +81,19 @@ const TrackClick = () => {
             "z": target.z
           },
           "Timestamp": d.toISOString(),
+          "Time": time
         })) 
       );
+
+      annots.map((annot) => {
+        const obj = localStorage.getItem('obj');
+        console.log(JSON.parse(obj));
+        return obj;
+      })
     }
   };
+
+
 
   const getDataPosition = (annot) => {
     return `${annot.position.x} ${annot.position.y} ${annot.position.z}`;
