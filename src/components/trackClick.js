@@ -7,6 +7,7 @@ import "@google/model-viewer/dist/model-viewer";
 import TimeMe from 'timeme.js'
 
 const TrackClick = () => {
+  
   const modelRef = React.useRef();
   const [annots, setAnnots] = useState([]);
 
@@ -51,6 +52,39 @@ const TrackClick = () => {
       });
       let time = TimeMe.getTimeOnCurrentPageInSeconds();
       console.log(time);
+
+      const d = new Date(Date.now());
+      console.log(d.toISOString());
+
+      annots.map((annot) =>
+      //json local storage object creation
+        localStorage.setItem('obj', JSON.stringify({
+          "position":{
+            "x": annot.position.x,
+            "y": annot.position.y,
+            "z": annot.position.z
+          },
+          "normal":{
+            "x": annot.normal.x,
+            "y": annot.normal.y,
+            "z": annot.normal.z
+          },
+          "cameraOrbit":{
+
+            
+            "theta": camera.theta,
+            "phi": camera.phi,
+            "radius": camera.radius
+          },
+          "fieldView": view,
+          "camera target":{
+            "x": target.x,
+            "y": target.y,
+            "z": target.z
+          },
+          "Timestamp": d.toISOString(),
+        })) 
+      );
     }
   };
 
@@ -72,9 +106,11 @@ const TrackClick = () => {
   //     console.log(target);
   //   }
   // }
-  const coordinateList = annots.map((annot, index) => 
-    <div key={index}>{annot.position.x}, {annot.position.y}, {annot.position.z}, {annot.normal.x}, {annot.normal.y}, {annot.normal.z}</div>
-  );
+
+  // const coordinatePosition = annots.map((annot, index) => 
+  //   <div key={index}>{annot.position.x}, {annot.position.y}, {annot.position.z}, {annot.normal.x}, {annot.normal.y}, {annot.normal.z}</div>
+  //   localStorage.setItem('obj', JSON.stringify({x: annot.position.x, y: annot.position.y, z: annot.position.z}))
+  //   );
 
   // const recordTime = (event) => {
   //   TimeMe.initialize({
@@ -85,10 +121,10 @@ const TrackClick = () => {
   //   console.log(time);
   // }
 
-  const getTimestamp = (event) => {
-    const d = new Date(Date.now());
-    return d.toISOString();
-  }
+  // const getTimestamp = (event) => {
+  //   const d = new Date(Date.now());
+  //   return d.toISOString();
+  // }
 
   return (
     <model-viewer 
@@ -118,10 +154,6 @@ const TrackClick = () => {
         ></button>
         ))
       }
-      <div>
-        {coordinateList}
-      </div>
-      <button onClick={getTimestamp}>Get Timestamp</button>
     </model-viewer>
   )
 }
