@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "slot": "hotspot-1",
+      "hotspotName": "Bottom Bread",
+      "dataPosition": "0.03569892348601039m 0.002001183054623913m -0.005184587309708775m",
+      "dataNormal": "0.2377213082789308m -0.9713289715125599m -0.0029340570046134076m",
+      "annotationData": "Bottom Bread"
+    },
+    {
+      "id": 2,
+      "slot": "hotspot-2",
+      "hotspotName" : "Top Bread",
+      "dataPosition": "0.009472496935692125m 0.06376317063496012m 0.0007550546795828568m",
+      "dataNormal": "-0.008232028464851921m 0.9680520018148671m -0.2506143561122996m",
+      "annotationData": "Top Bread"
+    },
+    {
+      "id": 3,
+      "slot": "hotspot-43",
+      "hotspotName": "Side Bread",
+      "dataPosition": "-0.0519253711891401m 0.020087483428401897m -0.008731505358671943m",
+      "dataNormal": "-0.9894424265927383m -0.14273959863292557m -0.025081695325183555m",
+      "annotationData": "Side Bread"
+    }
+]
